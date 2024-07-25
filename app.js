@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+app.use(express.static('public')) //載入靜態檔案
+
 app.get('/', (req, res) => {
   res.redirect('/movies') //重新導向，首頁顯示電影清單
 })
