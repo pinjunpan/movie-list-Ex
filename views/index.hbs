@@ -31,4 +31,20 @@
     </div>
     {{/each}}
   </div>
+  {{!-- Pagination --}}
+  <nav aria-label="...">
+    <ul class="pagination justify-content-center">
+      {{#each pages as |page|}}
+        {{#ifCond this ../currentPage}}
+          <li class="page-item active" aria-current="page">
+            <span class="page-link">{{this}}</span>
+          </li>
+        {{else}}
+          <li class="page-item">
+            <a class="page-link" href="/movies?page={{this}}{{#if ../keyword}}&search={{../keyword}}{{/if}}">{{this}}</a>
+          </li>
+        {{/ifCond}}
+      {{/each}}
+    </ul>
+  </nav>
 </div>
